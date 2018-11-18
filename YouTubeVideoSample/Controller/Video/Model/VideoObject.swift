@@ -66,4 +66,9 @@ class VideoObject: Object {
             return thumbnailDefaultUrlString ?? ""
         }
     }
+    
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

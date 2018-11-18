@@ -53,9 +53,22 @@ extension VideoListViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+}
+
+
+// MARK: UIScrollViewDelegate
+
+extension VideoListViewController: UIScrollViewDelegate {
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.count()-1, viewModel.dataLoaded {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
             if let text = searchBar.text, text.count > 0 {
                 viewModel.fetchSearch(searchParameter: text, clear: false)
                 searchBar.resignFirstResponder()

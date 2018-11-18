@@ -21,14 +21,14 @@ class VideoViewModel: NSObject {
     
     
     // MARK: Init
-
+    
     override init() {
         super.init()
         
         self.items = getStoredItems()
         self.didUpdateData()
         
-        fetchVideos(clear: true)
+        fetchVideos(clear: false)
     }
     
     
@@ -36,27 +36,25 @@ class VideoViewModel: NSObject {
     // Fetch
     func fetchVideos(clear: Bool) {
         if clear {
-            maxNumber = 0
-            DatabaseManager.shared.deleteAll()
+            clearAll()
         }
         
-        if maxNumber >= 50 { // This is done because there are 50 items max allowed to fetch from API
+        if maxNumber >= 50 { // This is done because there are 50 items max allowed to fetch from API, otherwise will throw an error
             return
         }
         
         maxNumber += 10
         ApiService.shared.requestVideos(numberOfItems: maxNumber) { (json, error) in
             if let array = json?["items"].array {
-                if clear {
-                    self.items.removeAll()
-                }
+                self.items.removeAll()
                 array.forEach({ [weak self] (json) in
-                    let object = DatabaseManager.shared.insertUserData(json: json)
+                    let object = DatabaseManager.shared.insertVideoObject(json: json)
                     self?.items.append(object)
                 })
-            }
-            onMain { [weak self] in
-                self?.didUpdateData()
+                
+                onMain { [weak self] in
+                    self?.didUpdateData()
+                }
             }
             
             self.dataLoaded = true
@@ -66,22 +64,19 @@ class VideoViewModel: NSObject {
     
     func fetchSearch(searchParameter: String, clear: Bool) {
         if clear {
-            maxNumber = 0
-            DatabaseManager.shared.deleteAll()
+            clearAll()
         }
         
-        if maxNumber >= 50 { // This is done because there are 50 items max allowed to fetch from API
+        if maxNumber >= 50 { // This is done because there are 50 items max allowed to fetch from API, otherwise will throw an error
             return
         }
         
         maxNumber += 10
         ApiService.shared.requestSearch(searchParameter: searchParameter, numberOfItems: maxNumber) { (json, error) in
             if let array = json?["items"].array {
-                if clear {
-                    self.items.removeAll()
-                }
+                self.items.removeAll()
                 array.forEach({ [weak self] (json) in
-                    let object = DatabaseManager.shared.insertUserData(json: json)
+                    let object = DatabaseManager.shared.insertVideoObject(json: json)
                     self?.items.append(object)
                 })
                 onMain { [weak self] in
@@ -105,5 +100,11 @@ class VideoViewModel: NSObject {
             items = Array(result)
         }
         return items
+    }
+    
+    fileprivate func clearAll() {
+        maxNumber = 0
+        DatabaseManager.shared.deleteAll()
+        items.removeAll()
     }
 }
