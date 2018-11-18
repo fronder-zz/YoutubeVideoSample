@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="VideoListViewController" customModule="YouTubeVideoSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="q6o-Dp-ZLa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="efU-Uy-ipY"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="241" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-ai-Db7">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoTableViewCell" rowHeight="241" id="pZ0-5i-mdY" customClass="VideoTableViewCell" customModule="YouTubeVideoSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="241"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pZ0-5i-mdY" id="fZs-fK-17X">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="240.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="53I-Pe-JLG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="YQb-wz-1s3"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9c-cg-o2p">
+                                                    <rect key="frame" x="0.0" y="180" width="375" height="60.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-Py-upC">
+                                                            <rect key="frame" x="8" y="8" width="359" height="44.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="fD3-Py-upC" secondAttribute="trailing" constant="8" id="HwF-Bh-3lO"/>
+                                                        <constraint firstItem="fD3-Py-upC" firstAttribute="top" secondItem="w9c-cg-o2p" secondAttribute="top" constant="8" id="LJ7-6A-Q1w"/>
+                                                        <constraint firstItem="fD3-Py-upC" firstAttribute="leading" secondItem="w9c-cg-o2p" secondAttribute="leading" constant="8" id="Ssg-9e-GWG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="fD3-Py-upC" secondAttribute="bottom" constant="8" id="tE3-UJ-04D"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5R-oC-GL0">
+                                                    <rect key="frame" x="149.5" y="63" width="76" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="76" id="Krf-Ls-yHK"/>
+                                                        <constraint firstAttribute="height" constant="54" id="LvV-mw-GdB"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_youtube_button"/>
+                                                    <connections>
+                                                        <action selector="playButtonDidClick:" destination="pZ0-5i-mdY" eventType="touchUpInside" id="oaO-hN-6LK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="w9c-cg-o2p" secondAttribute="bottom" id="81P-Hr-yE9"/>
+                                                <constraint firstItem="53I-Pe-JLG" firstAttribute="top" secondItem="fZs-fK-17X" secondAttribute="top" id="Qme-O0-Hf2"/>
+                                                <constraint firstItem="f5R-oC-GL0" firstAttribute="centerY" secondItem="53I-Pe-JLG" secondAttribute="centerY" id="Von-92-baP"/>
+                                                <constraint firstItem="53I-Pe-JLG" firstAttribute="leading" secondItem="fZs-fK-17X" secondAttribute="leading" id="WJa-vb-fzs"/>
+                                                <constraint firstItem="w9c-cg-o2p" firstAttribute="top" secondItem="53I-Pe-JLG" secondAttribute="bottom" id="dGH-G9-bL7"/>
+                                                <constraint firstItem="f5R-oC-GL0" firstAttribute="centerX" secondItem="53I-Pe-JLG" secondAttribute="centerX" id="gRQ-V2-cZ1"/>
+                                                <constraint firstItem="w9c-cg-o2p" firstAttribute="leading" secondItem="fZs-fK-17X" secondAttribute="leading" id="mcI-tf-Fv4"/>
+                                                <constraint firstAttribute="trailing" secondItem="53I-Pe-JLG" secondAttribute="trailing" id="qeA-Fn-7Ye"/>
+                                                <constraint firstAttribute="trailing" secondItem="w9c-cg-o2p" secondAttribute="trailing" id="tyg-wa-dRr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="thumbnailImageView" destination="53I-Pe-JLG" id="WQA-IQ-kkd"/>
+                                            <outlet property="titleLabel" destination="fD3-Py-upC" id="qQP-fd-Zcf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Gpi-Ba-5OA"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="tW2-dh-fXH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7i5-ai-Db7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2ov-Lm-4mX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7i5-ai-Db7" secondAttribute="trailing" id="Z5B-nX-3kr"/>
+                            <constraint firstAttribute="bottom" secondItem="7i5-ai-Db7" secondAttribute="bottom" id="fxh-KU-RbM"/>
+                            <constraint firstItem="q6o-Dp-ZLa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mmH-Qh-ZPM"/>
+                            <constraint firstItem="7i5-ai-Db7" firstAttribute="top" secondItem="q6o-Dp-ZLa" secondAttribute="bottom" id="oAv-hF-6lc"/>
+                            <constraint firstItem="q6o-Dp-ZLa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oK2-68-otN"/>
+                            <constraint firstItem="q6o-Dp-ZLa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wsh-9L-g8a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="q6o-Dp-ZLa" id="NR0-Cs-QNh"/>
+                        <outlet property="tableView" destination="7i5-ai-Db7" id="gRV-4j-0DB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Video Player View Controller-->
+        <scene sceneID="SjT-HW-uuD">
+            <objects>
+                <viewController storyboardIdentifier="VideoPlayer" id="LqU-jO-GR4" customClass="VideoPlayerViewController" customModule="YouTubeVideoSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xMC-fg-A1x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29E-rU-yIk" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="20" width="375" height="211"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="29E-rU-yIk" secondAttribute="height" multiplier="16:9" id="ism-rf-1R0"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vie-9w-L2s">
+                                <rect key="frame" x="0.0" y="20" width="375" height="211"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="moB-IN-MzS">
+                                        <rect key="frame" x="177.5" y="95.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="moB-IN-MzS" firstAttribute="centerY" secondItem="Vie-9w-L2s" secondAttribute="centerY" id="EZ0-db-0iA"/>
+                                    <constraint firstItem="moB-IN-MzS" firstAttribute="centerX" secondItem="Vie-9w-L2s" secondAttribute="centerX" id="EgW-XR-txA"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-J2-z6X">
+                                <rect key="frame" x="0.0" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Q57-wu-a84"/>
+                                    <constraint firstAttribute="height" constant="40" id="nx4-K3-P3x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.086274509799999996" green="0.4941176471" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeDidClick:" destination="LqU-jO-GR4" eventType="touchUpInside" id="It1-GJ-fO5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vie-9w-L2s" firstAttribute="bottom" secondItem="29E-rU-yIk" secondAttribute="bottom" id="1sZ-cm-jQI"/>
+                            <constraint firstItem="3eL-J2-z6X" firstAttribute="leading" secondItem="aEF-dn-obP" secondAttribute="leading" id="6MG-fm-Qy2"/>
+                            <constraint firstItem="29E-rU-yIk" firstAttribute="width" secondItem="29E-rU-yIk" secondAttribute="height" multiplier="16:9" id="Hfg-ZL-RXZ"/>
+                            <constraint firstItem="Vie-9w-L2s" firstAttribute="top" secondItem="29E-rU-yIk" secondAttribute="top" id="R9x-Tj-rh8"/>
+                            <constraint firstItem="29E-rU-yIk" firstAttribute="trailing" secondItem="aEF-dn-obP" secondAttribute="trailing" id="UsW-Z2-I0b"/>
+                            <constraint firstItem="29E-rU-yIk" firstAttribute="top" secondItem="aEF-dn-obP" secondAttribute="top" id="Z0c-ew-0nn"/>
+                            <constraint firstItem="Vie-9w-L2s" firstAttribute="leading" secondItem="29E-rU-yIk" secondAttribute="leading" id="aNh-2o-VLb"/>
+                            <constraint firstItem="Vie-9w-L2s" firstAttribute="trailing" secondItem="29E-rU-yIk" secondAttribute="trailing" id="tra-sP-2vh"/>
+                            <constraint firstItem="3eL-J2-z6X" firstAttribute="top" secondItem="aEF-dn-obP" secondAttribute="top" id="vgC-O8-QYE"/>
+                            <constraint firstItem="29E-rU-yIk" firstAttribute="leading" secondItem="aEF-dn-obP" secondAttribute="leading" id="zTB-rN-Q5e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aEF-dn-obP"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="Vie-9w-L2s" id="qgV-dl-Qmf"/>
+                        <outlet property="playerView" destination="29E-rU-yIk" id="Ekc-zp-MOw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blX-ge-TeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_youtube_button" width="356" height="243"/>
+    </resources>
+</document>

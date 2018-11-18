@@ -1,0 +1,6 @@
+framework module Pods_YouTubeVideoSample {
+  umbrella header "Pods-YouTubeVideoSample-umbrella.h"
+
+  export *
+  module * { export * }
+}
